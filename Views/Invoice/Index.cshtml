@@ -1,0 +1,27 @@
+﻿@model List<InvoiceDetail>
+@{
+    ViewData["Title"] = "Index";
+
+    <table class="table table-bordered  table-hover">
+    <tr>
+      <th>CustomerName</th>
+      <th>InvoiceDate</th> 
+      <th>ItemName</th>
+      <th>ItemCount</th>
+      <th>ItemPrice</th> 
+    </tr>
+
+    @foreach (var item in Model)
+        {
+            <tr>
+             <td>@item.InvoiceHeader.CustomerName</td>
+             <td>@item.InvoiceHeader.Invoicedate</td>
+             <td>@item.ItemName</td>
+             <td>@item.ItemCount</td>
+             <td>@item.ItemPrice</td>
+             <td><a class="btn btn-secondary" asp-controller="Invoice" asp-action="Edit" asp-route-id ="@item.Id">Edit</a></td>
+             <td><a class="btn btn-danger" asp-controller="Invoice" asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
+            </tr>
+        }
+    </table>
+}

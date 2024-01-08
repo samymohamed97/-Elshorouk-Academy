@@ -1,0 +1,29 @@
+﻿@model Cashier
+@{
+    ViewData["Title"] = "Edit";
+}
+<form method="post" asp-controller="Cashier" asp-action="SaveEdit">
+
+    <div>
+    <label asp-for="CashierName"></label>
+    <input asp-for="CashierName" class="form-control" />
+    </div>
+
+    <div>
+        <label>Branch</label>
+        <select name="BranchId" id="BranchId" class="form-control">
+            @foreach (Branch item in ViewBag.BranchList)
+            {
+                if(Model.BranchId == item.Id)
+                {
+                    <option value="@item.Id" selected>@item.Id</option>
+                }
+                else
+                {
+                    <option value="@item.Id">@item.BranchName</option>
+                }
+            }
+        </select>
+    </div>
+    <input type="submit" class="btn btn-primary" value=" Save"/>
+</form>

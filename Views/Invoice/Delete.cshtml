@@ -1,0 +1,14 @@
+﻿@model InvoiceDetail
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+       <h1>Delete</h1>
+           <ul>
+            <li>@Model.ItemName</li>
+            <li>@Model.ItemCount</li>
+           </ul>
+
+     <a class="btn btn-dark" asp-controller="Invoice" asp-action="Index">Back To List</a>
+     <a class="btn btn-danger" asp-controller="Invoice" asp-action="ConfirmDelete" asp-route-id="@Model.Id">Delete</a>

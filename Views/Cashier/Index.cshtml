@@ -1,0 +1,22 @@
+﻿@model List<Cashier>
+@{
+    ViewData["Title"] = "Index";
+    <a asp-controller="Cashier" asp-action="Create" class="btn btn-primary">Create Cashier</a>
+    <br /><br />
+    <table class="table table-bordered  table-hover"> 
+    <tr>
+         <th>CashierName</th>
+         <th>BranchName</th>
+    </tr>
+    @foreach (var item in Model)
+        {
+            <tr>
+             <td>@item.CashierName</td>
+             <td>@item.Branch.BranchName</td>
+             <td><a asp-controller="Cashier" asp-action="Edit" asp-fragment="@item.Id" class="btn btn-primary">Edit</a></td>
+             <td><a asp-controller="Cashier" asp-action="ConfirmDelete" asp-fragment="@item.Id" class="btn btn-danger">Delete</a></td>
+            </tr>
+        }
+
+    </table>
+}

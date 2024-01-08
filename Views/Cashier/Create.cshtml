@@ -1,0 +1,19 @@
+﻿@model Cashier
+@{
+    ViewData["Title"] = "Create";
+    SelectList branchitems = new SelectList(ViewBag.branchlist, "Id", "BranchName");
+}
+
+<form method="post" asp-controller="Cashier" asp-action="Create">
+    <div>
+    <label asp-for="CashierName" ></label>
+    <input  asp-for="CashierName" class="form-control"/>
+    </div>
+
+    <div>
+    <label asp-for="BranchId"></label>
+    <select asp-items="branchitems" asp-for="BranchId" class="form-control"></select>
+    </div>
+    <input type="submit" value="Create" class="btn btn-success" />
+
+</form> 
